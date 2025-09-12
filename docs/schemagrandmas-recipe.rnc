@@ -1,0 +1,34 @@
+start = recipe
+
+# The top-level element is 'recipe', which must contain metadata,
+# ingredients, and instructions.
+recipe = element recipe { metadata, ingredients, instructions }
+
+# Metadata is for the recipe's title, author, date, and description.
+metadata = element metadata {
+    element title { text },
+    element author { text },
+    element date { text },
+    element description { text }
+}
+
+# The ingredients section must contain one or more 'ingredient' elements.
+ingredients = element ingredients {
+    ingredient+
+}
+
+# Each ingredient must have a name, a quantity (as an integer), and a unit.
+# The `xsd:integer` specifies that the quantity must be a whole number.
+ingredient = element ingredient {
+    element name { text },
+    element quantity { xsd:integer },
+    element unit { text }
+}
+
+# The instructions section must contain one or more 'step' elements.
+instructions = element instructions {
+    step+
+}
+
+# Each step in the instructions is simply text.
+step = element step { text }

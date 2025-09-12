@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<recipe>
+    <metadata>
+        <title>Grandma's Chocolate Cake</title>
+        <author>Norma Kalie</author>
+        <date>will try and find out</date>
+        <description>A cherished family recipe for a delicious, moist chocolate cake.</description>
+    </metadata>
+    
+    <ingredients>
+        <!-- Will use an ingredient element for each item needed -->
+        <ingredient>
+            <name>INGREDIENT</name>
+            <quantity>0</quantity>
+            <unit></unit>
+        </ingredient>
+        <ingredient>
+            <name>INGREDIENT</name>
+            <quantity>0</quantity>
+            <unit></unit>
+        </ingredient>
+        <ingredient>
+            <name>INGREDIENT</name>
+            <quantity>0</quantity>
+            <unit></unit>
+        </ingredient>
+    </ingredients>
+    
+    <instructions>
+        <!-- Will use step element for each step in the instructions -->
+        <step>STEP_1</step>
+        <step>STEP_2</step>
+        <step>STEP_3</step>
+    </instructions>
+</recipe>
+
