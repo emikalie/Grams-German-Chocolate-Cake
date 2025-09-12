@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <recipe>
+    <!-- 2025-09-12 ebb: This is definitely too easy for the complicated task of curating this interesting recipe card!
+    * There's a multimedia dimension: You need a photo of the card to work with and make part of the project repo (website too?)
+    * You may be voice recording to help with interpreting the recipe.
+    * Think about curating metadata about the paper/cardstock, ink/pencil, food smudges(?), gaps, unreadable portions?
+    
+    * Think about: comment on scoopers vs. gram-scale approaches (Gram was a scooper.)
+    -->
     <metadata>
         <title>Grandma's Chocolate Cake</title>
         <author>Norma Kalie</author>
@@ -15,11 +22,8 @@
             <quantity>0</quantity>
             <unit></unit>
         </ingredient>
-        <ingredient>
-            <name>INGREDIENT</name>
-            <quantity>0</quantity>
-            <unit></unit>
-        </ingredient>
+        <ingredient category="dry" q="5" unit="cup" altUnit="g" >Grandma's original text</ingredient>
+            <!-- ^^^^ ebb: my suggestion? You don't have to do the altUnit but just something to think about!  -->
         <ingredient>
             <name>INGREDIENT</name>
             <quantity>0</quantity>
