@@ -13,7 +13,7 @@ To keep the "Grandma's Chocolate Cake" digital heritage project organized and ea
 The project repository should have the following root-level folders to keep content separated:
 
 - `docs/`: For all HTML pages (e.g., `index.html`, `main.html`, `recipe.html`).
--     `docs/`: For all CSS stylesheets.
+    - `docs/css`: For all CSS stylesheets.
 - `xml/`: For all XML files and their corresponding schemas.
 - `assets/`: For all images and other media files.
 
