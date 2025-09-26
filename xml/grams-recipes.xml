@@ -1,72 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<recipes>
-    <recipe name="German sweet chocolate cake" serves="Cake">
-        <metadata>
-            <notes>1-4oz bar</notes>
-        </metadata>
-        <ingredients>
-            <ingredient type="group_1">
-                <item name="Bakers German sweet chocolate" quantity="1" unit="pkg" note="1 oz"/>
-                <item name="boiling water" quantity="1/2" unit="cup"/>
-                <item name="butter" quantity="1" unit="cup"/>
-                <item name="sugar" quantity="2" unit="cups"/>
-                <item name="egg yolks" quantity="4"/>
-                <item name="vanilla" quantity="1" unit="tsp"/>
-            </ingredient>
-            <ingredient type="group_2">
-                <item name="sifted cake flour" quantity="2 1/2" unit="cups" note="Swan or Softasilk"/>
-                <item name="baking soda" quantity="1" unit="tsp"/>
-                <item name="salt" quantity="1/2" unit="tsp"/>
-                <item name="buttermilk" quantity="1" unit="cup"/>
-                <item name="egg whites" quantity="4" note="stiffly beaten"/>
-            </ingredient>
-        </ingredients>
-        <instructions>
-            <step action="melt">
-                <description>Melt chocolate in boiling water, cool.</description>
-            </step>
-            <step action="cream">
-                <description>Cream butter &amp; sugar till fluffy.</description>
-            </step>
-            <step action="add">
-                <description>Add egg yolks, 1 at a time, beating well. Blend in vanilla &amp; chocolate.</description>
-            </step>
-            <step action="sift_and_add">
-                <description>Sift flour with baking soda &amp; salt. Add alternately with buttermilk/choco mixture. Beat till smooth.</description>
-            </step>
-            <step action="fold">
-                <description>Fold in by hand beaten egg whites.</description>
-            </step>
-            <step action="bake">
-                <description>Pour into 3 round cake pans lined with parchment paper. Bake at 350 for 30-35 min. Cool in pans 15-20 min. Flip and remove paper.</description>
-            </step>
-        </instructions>
-    </recipe>
-    
-    <recipe name="Whipped Cream Frosting" serves="Frosting">
-        <metadata>
-            <source>Gramma Mikula &amp; Mom K.</source>
-            <date>2005</date>
-            <notes>On highest speed</notes>
-        </metadata>
-        <ingredients>
-            <ingredient type="beat_in_mixing_bowl">
-                <item name="egg white" quantity="1"/>
-                <item name="oleo" quantity="1/2" unit="cup"/>
-                <item name="Crisco" quantity="1/2" unit="cup"/>
-            </ingredient>
-            <ingredient type="add">
-                <item name="vanilla" quantity="1" unit="tsp"/>
-                <item name="sugar" quantity="1" unit="cup"/>
-                <item name="evaporated milk" quantity="2/3" unit="cup">
-                    <note>Small can = 2/3 cup</note>
-                </item>
-            </ingredient>
-        </ingredients>
-        <instructions>
-            <step description="Beat ingredients in mixing bowl on highest speed." action="beat"/>
-            <step description="Add the remaining ingredients." action="add"/>
-            <step description="Mix until thick and fluffy." action="mix"/>
-        </instructions>
-    </recipe>
-</recipes>
+<xml><!--2025-09-26 ebb: For your document data model for the cake, you'll want to write a coding schema in Relax NG. 
+Where you use @xml:id attributes, use the datatype (and look this up): xsd:ID.
+Where you use @resp (for people) and @ref (maybe?) for ingredients, use xsd:IDREF or xsd:IDREFS. (Look these up).
+Relax NG tutorial https://newtfire.org/courses/tutorials/explainRNG.html
+
+Big picture questions for you to add commentary on:
+How long does this actually take from start to finish? 
+
+Do you want to add your own list of the required equipment for this recipe? 
+pans, cups, bowls, spoons etc
+-->
+    <metadata>
+        <source>
+            <!-- comment/flesh out info about your source document(s). Where is the recipe from? 
+            facs is short for "facsimile". You can even comment on the missing document, etc. -->
+            <facs target="../assets/WHATFILENAME.jpg"/>
+        </source>
+        <author xml:id="njk"><!--GRANDMA--></author>
+        <editor xml:id="akk"><!--MOM --></editor>
+        <editor type="digitalArchivist" xml:id="eek">Emily Kalie</editor>
+    </metadata>
+    <recipes>
+        <recipe name="German sweet chocolate cake" serves="Cake">
+            <notes> </notes>
+            <ingredients>
+                <ingredient type="group_1">
+                    <item xml:id="choc" quantity="4" unit="ounce">Bakers German sweet chocolate<note resp="njk">1-4oz bar</note></item>
+                    <!--ebb: So, @resp is sometimes used to indicate responsibility in TEI code. This is your
+                    own markup, but we can adapt some of these things from the TEI. :-) -->
+                    <item xml:id="bwater" quantity=".5" unit="cup">1/2 cup boiling water</item>
+                    <item xml:id="butter" quantity="1" unit="cup">1 cup butter</item>
+                    <item xml:id="sug" quantity="2" unit="cup">2 cups of sugar</item>
+                    <item xml:id="egg-y" quantity="4" unit="egg-yolk">4 egg yolks</item>
+                    <item xml:id="van" quantity="1" unit="tsp">1 tsp vanilla</item>
+                </ingredient>
+                <ingredient type="group_2"><!--In the schema, use a datatype for decimals: xsd:float -->
+                    <item xml:id="cflour" quantity="2.5" unit="cup">2 1/2 cups sifted cake flour<note resp="njk">Swan or Softasilk</note>.</item>
+                    <item xml:id="bsoda" quantity="1" unit="tsp">1 tsp baking soda</item>
+                    <item xml:id="salt" quantity=".5" unit="tsp">1/2 tsp salt</item>
+                    <item xml:id="bumilk" quantity="1" unit="cup">1 cup buttermilk</item>
+                    <item xml:id="egg-w" quantity="4" unit="egg-white">4 egg whites<note resp="njk">stiffly beaten</note></item>
+                </ingredient>
+            </ingredients>
+            <instructions>
+                <!--ebb: Here's a coding challenge! How do you as the editor of this recipe add your own 
+                knowledge of what's MISSING in these written steps? 
+                Use the @resp attribute to point to your xml:id. 
+                
+                Do you want a photo (or two?) for each step? 
+                
+                What about teaching people how to separate an egg yolk from white?
+                
+                Do you want to give your commentary a little sass, style/tone? Think of your own new markup
+                as written in your distinctive voice. You can make it funny, serious, etc. :-)
+                -->
+                <step action="melt"><!-- Continue marking the ingredients and use a @ref attribute to point back to the xml:id -->
+                    <description>Melt <ing ref="choc">chocolate</ing> in boiling water, cool.</description>
+                </step>
+                <step action="cream"><!--ebb: What instruments are you using to cream the butter? -->
+                    <description>Cream <ing ref="butter sug">butter &amp; sugar</ing> till fluffy.</description>
+                </step>
+                <step action="add"><!--ebb: Okay, how did you really do this?  -->
+                    <description>Add egg yolks, 1 at a time, beating well. Blend in vanilla &amp;
+                        chocolate.</description>
+                </step>
+                <step action="sift_and_add"><!--ebb: Wait, did we miss a step? When did we mix the buttermilk and chocolate? -->
+                    <description>Sift flour with baking soda &amp; salt. Add alternately with
+                        buttermilk/choco mixture. Beat till smooth.</description>
+                </step>
+                <step action="fold"><!-- ebb: Hey, what does she mean by "fold"? -->
+                    <description>Fold in by hand beaten egg whites.</description>
+                </step>
+                <step action="bake"><!-- Add markup around temperatures in case someone is cooking England or Europe and using 
+                Celsius instead of Fahrenheit. Do you want to mark timespans (that would have unit="minute" quantity="" too). -->
+                    <description>Pour into 3 round cake pans lined with parchment paper. Bake at 350
+                        for 30-35 min. Cool in pans 15-20 min. Flip and remove paper.</description>
+                </step>
+            </instructions>
+        </recipe>
+
+        <recipe name="Whipped Cream Frosting" serves="Frosting">
+            <metadata>
+                <source resp="njk akk">Gramma Mikula &amp; Mom K.</source>
+                <date>2005</date><!-- ebb: Why 2005? -->
+                <note resp="njk">On highest speed</note>
+            </metadata>
+            <ingredients>
+                <ingredient type="beat_in_mixing_bowl"><!--ebb: I wonder if some things you described in the @type attributes should just be
+                "unpacked" into your own editorial notes with @resp="eek"? -->
+                    <item ref="egg-w" quantity="1" unit="egg-white">1 egg white</item>
+                    <item xml:id="oleo" quantity=".5" unit="cup">1/2 cup oleo</item>
+                    <item xml:id="crisco" quantity=".5" unit="cup">1/2 cup Crisco</item>
+                </ingredient>
+                <ingredient type="add">
+                    <item ref="van" quantity="1" unit="tsp">1 tsp vanilla</item>
+                    <item ref="sug" quantity="1" unit="cup">1 cup sugar</item>
+                    <item xml:id="evmilk" quantity=".66" unit="cup">2/3 cup evaporated milk<note resp="njk">Small can = 2/3 cup</note>
+                    </item>
+                </ingredient>
+            </ingredients>
+            <instructions><!-- ebb: If you write up an equipment list, you could be referencing it here. -->
+                <step action="beat">Beat ingredients in mixing bowl on highest speed.</step>
+                <step action="add">Add the remaining ingredients.</step>
+                <step action="mix">Mix until thick and fluffy.</step>
+            </instructions>
+        </recipe>
+    </recipes>
+</xml>
