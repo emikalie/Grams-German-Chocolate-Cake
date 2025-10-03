@@ -1,34 +1,62 @@
-start = recipe
+default namespace = ""
 
-# The top-level element is 'recipe', which must contain metadata,
-# ingredients, and instructions.
-recipe = element recipe { metadata, ingredients, instructions }
+start = element xml {
+  metadata,
+  equipment,
+  recipes
+}
 
-# Metadata is for the recipe's title, author, date, and description.
 metadata = element metadata {
-    element title { text },
-    element author { text },
-    element date { text },
-    element description { text }
+  element source {
+    text,
+    element facs {
+      attribute target { xsd:anyURI }
+    }?
+  },
+  element author { attribute xml:id { xsd:ID }, text? },
+  element editor {
+    attribute xml:id { xsd:ID },
+    attribute type { text }?,
+    text?
+  }*
 }
 
-# The ingredients section must contain one or more 'ingredient' elements.
-ingredients = element ingredients {
-    ingredient+
+equipment = element equipment {
+  element tool {
+    attribute xml:id { xsd:ID },
+    text
+  }+
 }
 
-# Each ingredient must have a name, a quantity (as an integer), and a unit.
-# The `xsd:integer` specifies that the quantity must be a whole number.
+recipes = element recipes { recipe+ }
+
+recipe = element recipe {
+  attribute name { text },
+  attribute serves { text },
+  notes?,
+  metadata?,
+  equipment?,
+  ingredients
+}
+
+notes = element notes { text? }
+
+ingredients = element ingredients { ingredient+ }
+
 ingredient = element ingredient {
-    element name { text },
-    element quantity { xsd:integer },
-    element unit { text }
+  attribute type { text }?,
+  (item | editorialNote)+
 }
 
-# The instructions section must contain one or more 'step' elements.
-instructions = element instructions {
-    step+
+item = element item {
+  attribute xml:id { xsd:ID }?,
+  attribute ref { xsd:IDREF }?,
+  attribute quantity { text }?,
+  attribute unit { text }?,
+  text
 }
 
-# Each step in the instructions is simply text.
-step = element step { text }
+editorialNote = element editorialNote {
+  attribute resp { xsd:IDREF },
+  text
+}
