@@ -1,62 +1,66 @@
-default namespace = ""
+start = xml
+xml = element xml {recipes}
+# ebb and eek: Looks like <recipes> is supposed to contain the two recipes,
+# one for the cake and one for the icing. 
+metadata = element metadata {source, author, editor+, (date | editorialNote | note)*}
 
-start = element xml {
-  metadata,
-  equipment,
-  recipes
-}
+date = element date {(xsd:date | xsd:gYearMonth| xsd:gYear)}
 
-metadata = element metadata {
-  element source {
-    text,
-    element facs {
-      attribute target { xsd:anyURI }
-    }?
-  },
-  element author { attribute xml:id { xsd:ID }, text? },
-  element editor {
-    attribute xml:id { xsd:ID },
-    attribute type { text }?,
-    text?
-  }*
-}
+source = element source {resp, text, facs*}
+facs = element facs {target, empty}
+target = attribute target { xsd:anyURI }
 
-equipment = element equipment {
-  element tool {
-    attribute xml:id { xsd:ID },
-    text
-  }+
-}
+author = element author {xmlid, text}
+editor = element editor {xmlid, type?, text}
+xmlid = attribute xml:id {xsd:ID}
 
+
+type = attribute type {"digitalArchivist" | "group_1" | "group_2" | "beat_in_mixing_bowl" | "add" | text}
+# ebb: As you decide on other values for @type, you can add or modify them. 
+# The | 'pipe' means "or"
+
+equipment = element equipment {tool+}
+ 
 recipes = element recipes { recipe+ }
 
-recipe = element recipe {
-  attribute name { text },
-  attribute serves { text },
-  notes?,
-  metadata?,
-  equipment?,
-  ingredients
-}
+recipe = element recipe {name, serves, metadata, equipment, ingredients, instructions}
 
-notes = element notes { text? }
+name = attribute name {"German sweet chocolate cake" | "Whipped Cream Frosting" | text}
+
+serves = attribute serves {text}
 
 ingredients = element ingredients { ingredient+ }
 
-ingredient = element ingredient {
-  attribute type { text }?,
-  (item | editorialNote)+
-}
+instructions = element instructions {(editorialNote | step)+}
 
-item = element item {
-  attribute xml:id { xsd:ID }?,
-  attribute ref { xsd:IDREF }?,
-  attribute quantity { text }?,
-  attribute unit { text }?,
-  text
-}
+ingredient = element ingredient { type,  (item | editorialNote)+ }
 
-editorialNote = element editorialNote {
-  attribute resp { xsd:IDREF },
-  text
-}
+item = element item { xmlid?, ref?, quantity, unit?, mixed{ (note | editorialNote)*}}
+
+note = element note {resp, text}
+
+ref =  attribute ref { xsd:IDREFS }
+quantity = attribute quantity {xsd:decimal}
+from = attribute from {xsd:decimal}
+to = attribute to {xsd:decimal}
+# this should also account for whole numbers as well as decimals! :-)
+ 
+unit =  attribute unit { "ounce" | "cup" | "egg-yolk" | "egg-white" | "tsp" | "T" | "F" | "minute" | text }
+
+step = element step { action, instruction}
+
+action = attribute action {"melt" | "cream" | "add" | "sift_and_add" | "fold" | "bake" | "beat" | "mix" | text}
+
+instruction = element instruction { mixed{ (ing | tool | temperature | timespan)* }  }
+
+ing = element ing { ref, text}
+
+tool = element tool {xmlid?, ref?, text}
+
+temperature = element temperature {unit, text }
+
+timespan = element timespan {unit, quantity?, from?, to?, text }
+
+editorialNote = element editorialNote { resp, text}
+
+resp = attribute resp {xsd:IDREFS}

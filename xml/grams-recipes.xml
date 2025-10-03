@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-model href="schema-grandmas-recipe.rnc" type="application/relax-ng-compact-syntax"?>
 <xml>
     <!--2025-09-26 ebb: For your document data model for the cake, you'll want to write a coding schema in Relax NG. 
 Where you use @xml:id attributes, use the datatype (and look this up): xsd:ID.
@@ -11,32 +13,32 @@ How long does this actually take from start to finish?
 Do you want to add your own list of the required equipment for this recipe? 
 pans, cups, bowls, spoons etc
 -->
-    <metadata>
-        <source> This recipie came from my dad's mother who got the recipe from her mother. My
-            grandma started teaching me how to make this cake when I was 12 year old. 
-            <!-- comment/flesh out info about your source document(s). Where is the recipe from? 
-            facs is short for "facsimile". You can even comment on the missing document, etc. -->
-            <facs target="../assets/WHATFILENAME.jpg"/>
-        </source>
-        <author xml:id="njk"><!--GRANDMA--></author>
-        <editor xml:id="akk"><!--MOM --></editor>
-        <editor type="digitalArchivist" xml:id="eek">Emily Kalie</editor>
-    </metadata>
-
-    <equipment>
-        <tool xml:id="mixer">Stand mixer with paddle attachment</tool>
-        <tool xml:id="spatula">Rubber spatula</tool>
-        <tool xml:id="bowls">Mixing bowls (various sizes)</tool>
-        <tool xml:id="whisk">Whisk</tool>
-        <tool xml:id="cakepans">3 round cake pans (lined with parchment)</tool>
-        <tool xml:id="sauce pan">Use a sauce pan to boil the needed amount of water </tool>
-        <tool xml:id="oven">Oven</tool>
-        <tool xml:id="measuringcups">Measuring cups &amp; spoons</tool>
-    </equipment>
+   
 
     <recipes>
         <recipe name="German sweet chocolate cake" serves="Cake">
-            <notes> </notes>
+            <metadata>
+                <source resp="njk"> This recipe came from my dad's mother who got the recipe from her mother. My
+                    grandma started teaching me how to make this cake when I was 12 year old. 
+                    <!-- comment/flesh out info about your source document(s). Where is the recipe from? 
+            facs is short for "facsimile". You can even comment on the missing document, etc. -->
+                    <facs target="../assets/WHATFILENAME.jpg"/>
+                </source>
+                <author xml:id="njk"><!--GRANDMA--></author>
+                <editor xml:id="akk"><!--MOM --></editor>
+                <editor type="digitalArchivist" xml:id="eek">Emily Kalie</editor>
+            </metadata>
+            
+            <equipment>
+                <tool xml:id="mixer">Stand mixer with paddle attachment</tool>
+                <tool xml:id="spatula">Rubber spatula</tool>
+                <tool xml:id="bowls">Mixing bowls (various sizes)</tool>
+                <tool xml:id="whisk">Whisk</tool>
+                <tool xml:id="cakepans">3 round cake pans (lined with parchment)</tool>
+                <tool xml:id="sauce-pan">Use a sauce pan to boil the needed amount of water </tool>
+                <tool xml:id="oven">Oven</tool>
+                <tool xml:id="measuringcups">Measuring cups &amp; spoons</tool>
+            </equipment>
             <ingredients>
                 <ingredient type="group_1">
                     <item xml:id="choc" quantity="4" unit="ounce">Bakers German sweet chocolate<note
@@ -76,36 +78,36 @@ pans, cups, bowls, spoons etc
                 -->
                 <step action="melt">
                     <!-- Continue marking the ingredients and use a @ref attribute to point back to the xml:id -->
-                    <description>Melt <ing ref="choc">chocolate</ing> in boiling water, cool. <tool
-                            ref="sauce pan"> for boiling water</tool>
-                    </description>
+                    <instruction>Melt <ing ref="choc">chocolate</ing> in boiling water, cool. <tool
+                            ref="sauce-pan"> for boiling water</tool>
+                    </instruction>
                 </step>
                 <step action="cream">
                     <!--ebb: What instruments are you using to cream the butter? -->
-                    <description>Cream <ing ref="butter sug">butter &amp; sugar</ing> till fluffy.
+                    <instruction>Cream <ing ref="butter sug">butter &amp; sugar</ing> till fluffy.
                             <tool ref="mixer">stand alone mixer or any mixer available </tool>
-                    </description>
+                    </instruction>
                 </step>
                 <editorialNote resp="eek">You can use any mixer that is available</editorialNote>
 
                 <step action="add">
                     <!--ebb: Okay, how did you really do this?  -->
-                    <description>Add egg yolks, 1 at a time, beating well. Blend in vanilla &amp;
-                        chocolate.</description>
+                    <instruction>Add egg yolks, 1 at a time, beating well. Blend in vanilla &amp;
+                        chocolate.</instruction>
                 </step>
                 <editorialNote resp="eek">Blend in cooled chocolate and vanilla (clarifying that the
                     chocolate must be cooled )</editorialNote>
 
                 <step action="sift_and_add">
                     <!--ebb: Wait, did we miss a step? When did we mix the buttermilk and chocolate? -->
-                    <description>Sift flour with baking soda &amp; salt. Add alternately with
+                    <instruction>Sift flour with baking soda &amp; salt. Add alternately with
                         buttermilk/choco mixture. Beat till smooth. <tool ref="spatula"> rubber
                             spatula recommended</tool>
-                    </description>
+                    </instruction>
                 </step>
                 <step action="fold">
                     <!-- ebb: Hey, what does she mean by "fold"? -->
-                    <description>Fold in by hand beaten egg whites.</description>
+                    <instruction>Fold in by hand beaten egg whites.</instruction>
                 </step>
                 <editorialNote resp="eek">"Fold" means gently combine with a spatula in circular
                     motion.</editorialNote>
@@ -113,11 +115,11 @@ pans, cups, bowls, spoons etc
                 <step action="bake">
                     <!-- Add markup around temperatures in case someone is cooking England or Europe and using 
                 Celsius instead of Fahrenheit. Do you want to mark timespans (that would have unit="minute" quantity="" too). -->
-                    <description><instruction>Pour into 3 round cake pans lined with parchment
-                            paper. </instruction> for <temperature unit="F"
-                            >350</temperature><timespan unit="minute" quantity="30-35">30-35
-                            min</timespan>. Cool in pans <timespan unit="minute" quantity="15-20"
-                            >15-20 min</timespan>. Flip and remove paper.</description>
+                    <instruction>Pour into 3 round cake pans lined with parchment
+                            paper.  for <temperature unit="F"
+                            >350</temperature><timespan unit="minute" from="30" to="35">30-35
+                            min</timespan>. Cool in pans <timespan unit="minute" from="15" to="20"
+                            >15-20 min</timespan>. Flip and remove paper.</instruction>
                 </step>
             </instructions>
         </recipe>
@@ -126,11 +128,15 @@ pans, cups, bowls, spoons etc
         <recipe name="Whipped Cream Frosting" serves="Frosting">
             <metadata>
                 <source resp="njk akk">Gramma Mikula &amp; Mom K.</source>
+                <author xml:id="njk"><!--GRANDMA--></author>
+                <editor xml:id="akk"><!--MOM --></editor>
+                <editor type="digitalArchivist" xml:id="eek">Emily Kalie</editor>
                 <date>2005</date>
                 <!-- ebb: Why 2005? -->
                 <editorialNote resp="eek">This is when my Grandma wrote the copy onto a note card,
                     not when recipe was first created.</editorialNote>
                 <note resp="njk">On highest speed</note>
+                
             </metadata>
             <equipment>
                 <tool xml:id="mixer">Electric hand mixer or stand mixer</tool>
@@ -155,18 +161,9 @@ pans, cups, bowls, spoons etc
             </ingredients>
             <instructions>
                 <!-- ebb: If you write up an equipment list, you could be referencing it here. -->
-                <step action="beat">Beat ingredients in mixing bowl on highest speed.</step>
-                <description>
-                    <tool ref="mixer"> </tool>
-                </description>
-                <step action="add">Add the remaining ingredients.</step>
-                <description>
-                    <tool ref="spatula"> </tool>
-                </description>
-                <step action="mix">Mix until thick and fluffy.</step>
-                <description>
-                    <tool ref="mixer"> </tool>
-                </description>
+                <step action="beat"><instruction><tool ref="mixer">Beat</tool> ingredients in mixing bowl on highest speed.</instruction></step>
+                <step action="add"><instruction><tool ref="spatula">Add</tool> the remaining ingredients.</instruction></step>
+                <step action="mix"><instruction><tool ref="mixer">Mix</tool> until thick and fluffy.</instruction></step>
             </instructions>
         </recipe>
     </recipes>
