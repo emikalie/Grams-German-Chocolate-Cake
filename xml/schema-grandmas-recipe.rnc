@@ -10,8 +10,8 @@ source = element source {resp, text, facs*}
 facs = element facs {target, empty}
 target = attribute target { xsd:anyURI }
 
-author = element author {xmlid?, text}
-editor = element editor {xmlid?, type?, text}
+author = element author {xmlid?, ref?, text}
+editor = element editor {xmlid?, ref?, type?, text}
 xmlid = attribute xml:id {xsd:ID}
 
 

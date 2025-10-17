@@ -22,7 +22,7 @@ pans, cups, bowls, spoons etc
                     her mother. My grandma started teaching me how to make this cake when I was 12
                     year old. <!-- comment/flesh out info about your source document(s). Where is the recipe from? 
             facs is short for "facsimile". You can even comment on the missing document, etc. -->
-                    <facs target="../assets/WHATFILENAME.jpg"/>
+                    <facs target="../docs/assets/WHATFILENAME.jpg"/>
                 </source>
                 <author xml:id="njk"><!--GRANDMA--></author>
                 <editor xml:id="akk"><!--MOM --></editor>
@@ -87,7 +87,7 @@ pans, cups, bowls, spoons etc
                     <instruction>Cream <ing ref="butter sug">butter &amp; sugar</ing> till fluffy.
                             <tool ref="mixer">stand alone mixer or any mixer available </tool>
                     </instruction>
-                    <photo target="../assets/cake/cake-batter-mixing.jpeg"> </photo>
+                    <photo target="../docs/assets/cake/cake-batter-mixing.jpeg"> </photo>
         <!-- eek: what i am doing here is, in my assets folder i creaded a few diff folders for the 
             diff images that i have just to make it easier for myself, so this photo is of something for the cake part
             while others may not be in the cake or frosting folders i made bc the images can be used for any recipe -->
@@ -100,7 +100,7 @@ pans, cups, bowls, spoons etc
                     <instruction>Add egg yolks, 1 at a time, beating well. Blend in vanilla &amp;
                         chocolate. <tool ref="egg-separator"> </tool>
                     </instruction>
-                    <photo target="../assets/egg-tool.jpeg"> </photo>
+                    <photo target="../docs/assets/egg-tool.jpeg"> </photo>
             <!-- eek: like for this photo element i will use the egg tool pic for both the cake and the frosting recipe
                 so i left it outside eihter of the new folders i made since i can use some pics for both recipes  
                 also when i make the cake on Saturday, i will do more photos demo-ing how to use the tool -->
@@ -115,12 +115,12 @@ pans, cups, bowls, spoons etc
                         buttermilk/choco mixture. Beat till smooth. <tool ref="spatula"> rubber
                             spatula recommended</tool>
                     </instruction>
-                    <photo target="../assets/cake/sifting-flour1.jpeg"> </photo>
+                    <photo target="../docs/assets/cake/sifting-flour1.jpeg"> </photo>
                 </step>
                 <step action="fold">
                     <!-- ebb: Hey, what does she mean by "fold"? -->
                     <instruction>Fold in by hand beaten egg whites.</instruction>
-                    <photo target="../assets/"> </photo>
+                    <photo target="../docs/assets/"> </photo>
                 <!-- eek: i will get a few photos for this when i make the cake on Saturday    -->
                 </step>
                 <editorialNote resp="eek">"Fold" means gently combine with a spatula in circular
@@ -136,16 +136,16 @@ pans, cups, bowls, spoons etc
                         paper.</instruction>
                 </step>
             </instructions>
-            <photo target="../assets/cake/greesed-pans.jpeg"> </photo>
+            <photo target="../docs/assets/cake/greesed-pans.jpeg"> </photo>
         </recipe>
 
 
         <recipe name="Whipped Cream Frosting" serves="Frosting">
             <metadata>
                 <source resp="njk akk">Gramma Mikula &amp; Mom K.</source>
-                <author xml:id="njk"><!--GRANDMA--></author>
-                <editor xml:id="akk"><!--MOM --></editor>
-                <editor type="digitalArchivist" xml:id="eek">Emily Kalie</editor>
+                <author ref="njk"><!--GRANDMA--></author>
+                <editor ref="akk"><!--MOM --></editor>
+                <editor type="digitalArchivist" ref="eek">Emily Kalie</editor>
                 <date>2005</date>
                 <!-- ebb: Why 2005? -->
                 <editorialNote resp="eek">This is when my Grandma wrote the copy onto a note card,
@@ -154,9 +154,9 @@ pans, cups, bowls, spoons etc
 
             </metadata>
             <equipment>
-                <tool xml:id="mixer">Electric hand mixer or stand mixer</tool>
-                <tool xml:id="bowl">Mixing bowl</tool>
-                <tool xml:id="spatula">Rubber spatula</tool>
+                <tool ref="mixer">Electric hand mixer or stand mixer</tool>
+                <tool ref="mixer">Mixing bowl</tool>
+                <tool ref="spatula">Rubber spatula</tool>
             </equipment>
             <ingredients>
                 <ingredient type="beat_in_mixing_bowl">
@@ -179,12 +179,12 @@ pans, cups, bowls, spoons etc
                 <step action="beat">
                     <instruction><tool ref="mixer">Beat</tool> ingredients in mixing bowl on highest
                         speed.</instruction>
-                    <photo target="../assets/frosting/frosting-mixing.jpeg"> </photo>
+                    <photo target="../docs/assets/frosting/frosting-mixing.jpeg"> </photo>
                 </step>
                 <step action="add">
                     <instruction><tool ref="spatula">Add</tool> the remaining
                         ingredients.</instruction>
-                    <photo target="../assets/frosting/frosting-mixing2.jpeg"> </photo>
+                    <photo target="../docs/assets/frosting/frosting-mixing2.jpeg"> </photo>
                 </step>
                 <step action="mix">
                     <instruction><tool ref="mixer">Mix</tool> until thick and fluffy.</instruction>
