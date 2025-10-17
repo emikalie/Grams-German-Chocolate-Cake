@@ -4,86 +4,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Grandma's Chocolate Cake</title>
-        
-        <style>
-        /* CSS for the entire page */
-        body {
-            <!-- Sets a light pink background color for the entire page -->
-            background-color: #fce4ec; <!--<!-\- A gentle, pale pink -\->-->
-            
-             <!--Centers the content both horizontally and vertically--> 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; <!--100% of the viewport height--> 
-            margin: 0;  <!--Removes default body margins--> 
-            
-            /* Basic font styling */
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        /* Styles for the main content box */
-        .splash-container {
-            /* Sets a white background and adds padding */
-            background-color: #ffffff;
-            padding: 4rem; /* padding around the text */
-            
-            /* smooth, rounded rectangle shape */
-            border-radius: 15px;
-            
-            /* subtle shadow for a 3D effect */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styles for the main title */
-        .splash-container h1 {
-            /* Sets the color and font size for the title */
-            color: #4b3832; /* A dark, chocolate-like brown color */
-            font-size: 3.5rem;
-            
-            /* Adds a bit of margin below the title */
-            margin: 0;
-        }
-
-        /* Styles for the subtitle or description */
-        .splash-container p {
-            color: #7f5539; /* A lighter brown color for contrast */
-            font-size: 1.25rem;
-            margin-top: 1rem;
-            margin-bottom: 2rem; /* Add more space below the paragraph */
-        }
-        
-        /* Styles for the "Enter" button */
-        .enter-button {
-            display: inline-block; /* Allows padding and margin */
-            background-color: #ffb6c1; /* A medium pink color */
-            color: #4b3832; /* Same dark brown as the title for consistency */
-            padding: 15px 30px;
-            text-decoration: none; /* Removes the underline from the link */
-            font-size: 1.25rem;
-            border-radius: 50px; /* Makes the button a pill shape */
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        
-        /* Effect when a user hovers over the button */
-        .enter-button:hover {
-            background-color: #ff99aa; /* A slightly darker pink on hover */
-            transform: translateY(-3px); /* Lifts the button slightly */
-        }
-        
-        /* Effect when the button is clicked */
-        .enter-button:active {
-            transform: translateY(0); /* Pushes the button back down */
-        }
-    </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         
         <div class="splash-container">
             <h1>Grandma's Chocolate Cake</h1>
-            <p>A Digital Heritage Project</p>
+            <h2>A Digital Heritage Project</h2>
+            <p class="intro">
+                Passed down from my great-grandmother and preserved from Grandma’s 2005 recipe card, 
+                this project celebrates the love, time, and flavor behind every slice.
+            </p>
             
+            <div class="photo-preview">
+                <img src="../assets/cake/cake-batter-mixing.JPG" alt="Mixing the batter">
+                <img src="../assets/cake/sifting-flour1.JPG" alt="Sifting flour">
+                <img src="../assets/cake/greesed-pans.JPG" alt="Greased pans ready to bake">
+            </div>
+           
             <a href="main.html" class="enter-button">Enter</a>
         </div>
         

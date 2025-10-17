@@ -1,0 +1,80 @@
+/* CSS for the splash page */
+body {
+  /* Sets a light pink background for the entire page */
+  background-color: #f4ceea;
+
+  /* Centers the content both horizontally and vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+  /* Basic font styling */
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Styles for the main content box */
+.splash-container {
+  /* Sets a white background and adds padding */
+  background-color: #ffffff;
+  padding: 4rem;
+
+  /* Smooth, rounded rectangle shape */
+  border-radius: 15px;
+
+  /* Subtle shadow for a 3D effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the main title */
+.splash-container h1 {
+  /* Sets the color and font size for the title */
+  color: #4b3832;
+  font-size: 3.5rem;
+}
+
+/* Styles for the photo preview section */
+.photo-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;      /* allows wrapping on small screens */
+  gap: 1rem;            /* spacing between images */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Container for the photos */
+.photo-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Default thumbnail styling */
+.photo-preview img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  cursor: zoom-in;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  z-index: 1;
+}
+
+/* Hover effect: zoom into focus like a magnifying glass */
+.photo-preview img:hover {
+  transform: scale(2.5); /* how much to zoom */
+  z-index: 10; /* bring to front */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  cursor: zoom-out;
+}
+

@@ -10,8 +10,8 @@ source = element source {resp, text, facs*}
 facs = element facs {target, empty}
 target = attribute target { xsd:anyURI }
 
-author = element author {xmlid, text}
-editor = element editor {xmlid, type?, text}
+author = element author {xmlid?, text}
+editor = element editor {xmlid?, type?, text}
 xmlid = attribute xml:id {xsd:ID}
 
 
@@ -23,7 +23,7 @@ equipment = element equipment {tool+}
  
 recipes = element recipes { recipe+ }
 
-recipe = element recipe {name, serves, metadata, equipment, ingredients, instructions}
+recipe = element recipe {name, serves, metadata, equipment, ingredients, instructions, photo*} #added photo* 
 
 name = attribute name {"German sweet chocolate cake" | "Whipped Cream Frosting" | text}
 
@@ -47,7 +47,7 @@ to = attribute to {xsd:decimal}
  
 unit =  attribute unit { "ounce" | "cup" | "egg-yolk" | "egg-white" | "tsp" | "T" | "F" | "minute" | text }
 
-step = element step { action, instruction}
+step = element step { action, instruction, photo*}
 
 action = attribute action {"melt" | "cream" | "add" | "sift_and_add" | "fold" | "bake" | "beat" | "mix" | text}
 
@@ -60,6 +60,8 @@ tool = element tool {xmlid?, ref?, text}
 temperature = element temperature {unit, text }
 
 timespan = element timespan {unit, quantity?, from?, to?, text }
+
+photo = element photo { attribute target { xsd:anyURI }, text? } #added this for the photo element to work in the xml 
 
 editorialNote = element editorialNote { resp, text}
 
