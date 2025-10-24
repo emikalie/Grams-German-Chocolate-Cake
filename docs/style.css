@@ -91,10 +91,11 @@ body {
 
 /* VERTICAL NAV (for Welcome & Steps Pages) */
 .vertical-nav {
-    position: fixed;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    /*left: 0;*/
+    /*transform: translateY(-50%);*/
     background-color: #f8d6eb;
     padding: 1.5rem;
     border-radius: 12px;

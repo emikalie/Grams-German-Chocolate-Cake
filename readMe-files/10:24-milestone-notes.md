@@ -53,7 +53,7 @@
 
 ---
 
-## Entier Site CSS Cleanup Summary
+## Entire Site CSS Cleanup Summary
 
 Added new responsive and layout improvements:
 - `@media (max-width: 600px)` → prevents over-zoom on mobile.
