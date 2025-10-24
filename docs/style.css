@@ -1,80 +1,250 @@
-/* CSS for the splash page */
+/*  Whole BODY STYLING  */
 body {
-  /* Sets a light pink background for the entire page */
-  background-color: #f4ceea;
-
-  /* Centers the content both horizontally and vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-
-  /* Basic font styling */
-  font-family: Arial, sans-serif;
-  text-align: center;
+    background-color: #f4ceea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-/* Styles for the main content box */
+/* SPLASH PAGE CONTAINER */
 .splash-container {
-  /* Sets a white background and adds padding */
-  background-color: #ffffff;
-  padding: 4rem;
-
-  /* Smooth, rounded rectangle shape */
-  border-radius: 15px;
-
-  /* Subtle shadow for a 3D effect */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 100px; /* ensures space below top nav */
 }
 
-/* Styles for the main title */
+/* TITLES */
 .splash-container h1 {
-  /* Sets the color and font size for the title */
-  color: #4b3832;
-  font-size: 3.5rem;
+    color: #4b3832;
+    font-size: 3.5rem;
 }
 
-/* Styles for the photo preview section */
+/* PHOTO PREVIEW (SPLASH PAGE) */
 .photo-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;      /* allows wrapping on small screens */
-  gap: 1rem;            /* spacing between images */
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease-in-out;
 }
 
-/* Container for the photos */
-.photo-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  transition: all 0.4s ease-in-out;
-}
-
-/* Default thumbnail styling */
+/* Thumbnail styling */
 .photo-preview img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  cursor: zoom-in;
-  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-  z-index: 1;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    cursor: zoom-in;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    z-index: 1;
 }
 
-/* Hover effect: zoom into focus like a magnifying glass */
+/* Hover zoom (magnify effect) */
 .photo-preview img:hover {
-  transform: scale(2.5); /* how much to zoom */
-  z-index: 10; /* bring to front */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  cursor: zoom-out;
+    transform: scale(2.5);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    cursor: zoom-out;
+}
+
+/* TOP NAV (for Splash Page only) */
+.top-nav {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d6eb;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.top-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #4a1f6e;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: #b84bb8;
+}
+
+/* VERTICAL NAV (for Welcome & Steps Pages) */
+.vertical-nav {
+    position: fixed;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    background-color: #f8d6eb;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.vertical-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-nav li {
+    margin: 1rem 0;
+}
+
+.vertical-nav a {
+    text-decoration: none;
+    color: #4a1f6e;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.vertical-nav a:hover {
+    color: #b84bb8;
+    transform: translateX(5px);
+}
+
+/*  WELCOME PAGE LAYOUT  */
+.welcome-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.intro-section h1 {
+    color: #4b3832;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro-section p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+/* Welcome page images with magnifying hover */
+.photo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.photo-row img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    cursor: zoom-in;
+    z-index: 1;
+}
+
+.photo-row img:hover {
+    transform: scale(2.5);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    cursor: zoom-out;
+}
+
+/* ---------- STEPS PAGE LAYOUT ---------- */
+.steps-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f8d6eb;
+    border-radius: 15px;
+}
+
+.steps-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.step {
+    background-color: #fce9f3;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step h3 {
+    text-align: center;
+    color: #3b2e2a;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.step p {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Video sizing */
+.step video {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Back link */
+.back-link {
+    display: block;
+    text-align: center;
+    margin: 2rem auto 0;
+    font-weight: bold;
+    color: #4a1f6e;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #b84bb8;
+}
+
+/* ---------- RESPONSIVE ZOOM SAFETY ---------- */
+@media (max-width: 600px) {
+    .photo-preview img:hover,
+    .photo-row img:hover {
+        transform: scale(1.5);
+    }
 }
 

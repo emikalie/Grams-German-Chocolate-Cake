@@ -29,6 +29,10 @@ pans, cups, bowls, spoons etc
                 <editor type="digitalArchivist" xml:id="eek">Emily Kalie</editor>
             </metadata>
 
+<!--when we started making the cake it was 10:45, when we put the cakes in teh oven it was 12:00, we started the frosting soon after 
+          around 12:10 and when we got finished with the frosting it was about   -->
+
+
             <equipment>
                 <tool xml:id="mixer">Stand mixer with paddle attachment</tool>
                 <tool xml:id="spatula">Rubber spatula</tool>
@@ -78,8 +82,10 @@ pans, cups, bowls, spoons etc
                 -->
                 <step action="melt">
                     <!-- Continue marking the ingredients and use a @ref attribute to point back to the xml:id -->
-                    <instruction>Melt <ing ref="choc">chocolate</ing> in boiling water, cool. <tool
-                            ref="sauce-pan"> for boiling water</tool>
+                    <instruction>Melt <ing ref="choc">chocolate</ing> in hot water slowly or eles it will burn, when cooling take pan 
+                        off burner to cool nicer
+                        <tool
+                            ref="sauce-pan"> for hot water</tool>
                     </instruction>
                 </step>
                 <step action="cream">
@@ -121,7 +127,7 @@ pans, cups, bowls, spoons etc
                     <!-- ebb: Hey, what does she mean by "fold"? -->
                     <instruction>Fold in by hand beaten egg whites.</instruction>
                     <photo target="../docs/assets/"> </photo>
-                <!-- eek: i will get a few photos for this when i make the cake on Saturday    -->
+                <!-- eek: i will get a few photos for this when i make the cake on Saturday and a video   -->
                 </step>
                 <editorialNote resp="eek">"Fold" means gently combine with a spatula in circular
                     motion.</editorialNote>
@@ -138,7 +144,6 @@ pans, cups, bowls, spoons etc
             </instructions>
             <photo target="../docs/assets/cake/greesed-pans.jpeg"> </photo>
         </recipe>
-
 
         <recipe name="Whipped Cream Frosting" serves="Frosting">
             <metadata>
