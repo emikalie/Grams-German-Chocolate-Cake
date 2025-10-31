@@ -126,8 +126,9 @@ pans, cups, bowls, spoons etc
                 <step action="fold">
                     <!-- ebb: Hey, what does she mean by "fold"? -->
                     <instruction>Fold in by hand beaten egg whites.</instruction>
-                    <photo target="../docs/assets/"> </photo>
-                <!-- eek: i will get a few photos for this when i make the cake on Saturday and a video   -->
+                    <photo target="../docs/assets/egg-tool.JPG"> </photo>
+                    <photo target="../docs/assets/egg-tool2.JPG"> </photo>
+
                 </step>
                 <editorialNote resp="eek">"Fold" means gently combine with a spatula in circular
                     motion.</editorialNote>
@@ -143,6 +144,7 @@ pans, cups, bowls, spoons etc
                 </step>
             </instructions>
             <photo target="../docs/assets/cake/greesed-pans.jpeg"> </photo>
+            <photo target="../docs/assets/cake/batter-in-pans.JPG"> </photo>
         </recipe>
 
         <recipe name="Whipped Cream Frosting" serves="Frosting">

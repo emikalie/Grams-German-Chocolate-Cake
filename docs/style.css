@@ -1,22 +1,17 @@
 /*  Whole BODY STYLING  */
 body {
     background-color: #f4ceea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
-/* SPLASH PAGE CONTAINER */
-.splash-container {
-    background-color: #ffffff;
-    padding: 4rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 100px; /* ensures space below top nav */
+/* Splash page only */
+body.splash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* use min-height so it never clips */
 }
 
 /* TITLES */
@@ -217,6 +212,7 @@ body {
     margin-bottom: 1rem;
 }
 
+
 /* Video sizing */
 .step video {
     width: 100%;
@@ -226,6 +222,34 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
+
+/* Photo pair layout for Step 1 (safe version that won't touch videos) */
+.photo-pair {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.photo-pair img {
+    flex: 1 1 300px; /* keeps each photo flexible and responsive */
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-pair img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
 
 /* Back link */
 .back-link {
@@ -247,5 +271,14 @@ body {
     .photo-row img:hover {
         transform: scale(1.5);
     }
+}
+
+.white-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    max-width: 950px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 

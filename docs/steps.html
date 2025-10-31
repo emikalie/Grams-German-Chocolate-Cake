@@ -6,7 +6,15 @@
   <title>Cake & Frosting Steps | Grandma's German Chocolate Cake</title>
   <link rel="stylesheet" href="style.css" />
 
+
 </head>
+<nav class="vertical-nav">
+  <ul>
+    <li><a href="index.html">Splash Page</a></li>
+    <li><a href="welcome.html">Project Overview</a></li>
+    <li><a href="steps.html">Cake & Frosting Steps</a></li>
+  </ul>
+</nav>
 
 <body>
 
@@ -34,27 +42,34 @@
     <h2>Cake Preparation Steps</h2>
 
     <article class="step">
-      <h3>1. Melting the Chocolate</h3>
+      <h3>1. Boiling Water Chocolate</h3>
       <p>Melt German sweet chocolate carefully in hot water so it doesn’t burn.</p>
-      <video controls>
-        <source src="assets/videos/choc-going-in-cake-batter.mp4" type="video/mp4" />
-      </video>
+
+      <div class="photo-pair">
+        <img src="assets/cake/choc-boiling.JPG" alt="Boiling chocolate in hot water" />
+        <img src="assets/cake/choc-liquid.JPG" alt="Melted German chocolate mixture" />
+      </div>
     </article>
 
     <article class="step">
       <h3>2. Creaming Butter and Sugar</h3>
       <p>Beat butter and sugar until light and fluffy using a stand mixer.</p>
       <video controls>
-        <source src="assets/videos/cake-batter-mixing.mp4" type="video/mp4" />
+        <source src="assets/videos/creaming-batter.mp4" type="video/mp4" />
       </video>
     </article>
 
     <article class="step">
       <h3>3. Mixing in Flour and Buttermilk</h3>
-      <p>Sift flour with baking soda and salt, then add alternately with buttermilk and chocolate mixture.</p>
+      <p class="video-caption">This is a step within a step, something you have to do before adding the flour for this
+        step. Here I’m sifting the flour before adding it to the mix — this keeps the texture light and even.</p>
+      <video controls>
+        <source src="assets/videos/showing-sifting-flour.mp4" type="video/mp4" />
+      </video>
       <video controls>
         <source src="assets/videos/cake-flour-mixing-in.mp4" type="video/mp4" />
       </video>
+      <p>After the flour is sifted, then add alternately with buttermilk and chocolate mixture.</p>
     </article>
 
     <article class="step">
@@ -69,10 +84,15 @@
       <h3>5. Baking</h3>
       <p>Pour into 3 pans and bake at <strong>350°F</strong> for 30–35 minutes. Cool before frosting.</p>
       <video controls>
+<<<<<<< HEAD:docs/steps.html
         <source src="assets/videos/finished-frosting.mp4" type="video/mp4" />
+=======
+        <source src="assets/videos/cake-batter-in-pans.mp4" type="video/mp4" />
+>>>>>>> c0a0ed6 (1031 milestone changes):docs/Steps.html
       </video>
     </article>
   </section>
+
 
   <!-- Frosting Steps -->
   <section id="frosting-steps">
@@ -82,7 +102,7 @@
       <h3>1. Mixing Ingredients</h3>
       <p>Beat egg white, oleo (butter), and Crisco on high speed.</p>
       <video controls>
-        <source src="assets/videos/frosting-mixing.mp4" type="video/mp4" />
+        <source src="assets/videos/frosting-timelapse.mp4" type="video/mp4" />
       </video>
     </article>
 
