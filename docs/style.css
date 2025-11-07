@@ -265,7 +265,7 @@ body.splash {
     color: #b84bb8;
 }
 
-/* ---------- RESPONSIVE ZOOM SAFETY ---------- */
+/*RESPONSIVE ZOOM SAFETY */
 @media (max-width: 600px) {
     .photo-preview img:hover,
     .photo-row img:hover {
@@ -281,4 +281,131 @@ body.splash {
     padding: 2.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
+body {
+  background-color: #f4ceea;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* main recipe sections */
+section.recipe {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff0f8;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* titles */
+h1, h2, h3 {
+  color: #4b3832;
+  margin-bottom: 1rem;
+}
+
+/* navigation bar */
+.vertical-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.vertical-nav a {
+  color: #4b3832;
+  font-weight: bold;
+  text-decoration: none;
+}
+.vertical-nav a.active {
+  text-decoration: underline;
+}
+
+/* lists for ingredients and equipment */
+section.ingredient ul,
+section.equipment ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+}
+section.ingredient li,
+section.equipment li {
+  margin: 0.25rem 0;
+}
+
+/* step list */
+section.instructions ol {
+  text-align: left;
+  margin: 1rem auto;
+  max-width: 700px;
+}
+
+/* photos */
+figure {
+    margin: 1.0rem auto;
+    max-width: 700px;
+    text-align: center;   /* centers the image inside the figure */
+}
+
+figure img {
+    width: 55%;           /* adjust for smaller/larger */
+    height: auto;
+    display: block;       /* ensures margin auto works */
+    margin: 0 auto;       /* centers image horizontally */
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+
+/* notes / asides */
+aside {
+  background: #ffe6f0;
+  border-left: 4px solid #d86ba1;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+/* small helpers */
+.temp, .time {
+  font-weight: bold;
+  color: #a05a79;
+}
+.tool a {
+  color: #a05a79;
+  text-decoration: none;
+}
+
+
+/* Equipment & Ingredients headings */
+section.equipment h3,
+section.ingredient h3 {
+    text-align: left;
+    color: palevioletred;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Instructions heading centered and black */
+section.instructions h3 {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Turn off hover effect only for photos in the recipe's photo-row section */
+body.recipe-page .photo-row img:hover {
+    transform: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}
+
+
 

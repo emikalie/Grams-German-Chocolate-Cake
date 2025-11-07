@@ -39,20 +39,33 @@
         </section> 
     </xsl:template>
     <xsl:template match="metadata">
-        <!-- Let's just pull the descriptive info you're supplying in the <source> element here. -->
+        <!-- Pulling the descriptive info in the <source> element here. -->
         <div class="source">
         <xsl:apply-templates select="source"/>
         </div>
     </xsl:template>
     
-    <xsl:template match="equipment | ingredient">
-        <section class="{name()}">
+    <!-- Equipment Section -->
+    <xsl:template match="equipment">
+        <section class="equipment">
+            <h3>Equipment</h3>
             <ul>
-                <xsl:apply-templates/>           
-           </ul>
+                <xsl:apply-templates select="tool"/>
+            </ul>
         </section>
-        
     </xsl:template>
+    
+    <!-- Ingredient Section -->
+    <xsl:template match="ingredient">
+        <section class="ingredient">
+            <h3>Ingredients</h3>
+            <ul>
+                <xsl:apply-templates select="item"/>
+            </ul>
+        </section>
+    </xsl:template>
+    
+        
     <xsl:template match="equipment/tool">
         <xsl:element name="li">
             <xsl:if test="@xml:id">
@@ -102,5 +115,122 @@
    
    Work on the CSS as you're developing the shape of this output!
    -->
+    
+    
+    <!-- Instructions -->
+    <!--
+        This template finds the <instructions> section in my XML file.
+        It turns that into an HTML <section> with a class called "instructions" so I can style it later.
+        The <h3> tag creates a heading that says “Instructions”.
+        The <ol> tag starts an ordered list so each recipe step is numbered automatically.
+        The xsl:apply-templates select="step" tells XSLT to go look for all <step> elements inside <instructions>
+        and process each one using the next template below.
+    -->
+    <xsl:template match="instructions">
+        <section class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <xsl:apply-templates select="step"/>
+            </ol>
+        </section>
+    </xsl:template>
+
+    <!-- Each step -->
+    <!--
+        This template matches every <step> element inside the instructions.
+        It wraps each step in an <li> tag so it shows up as a numbered list item.
+        Inside each <li>, it runs two more templates:
+        one for the <instruction> (the text directions)
+        and one for <photo> (the image that goes with that step).
+        This way, each step shows both the written directions and its matching photo.
+    -->
+    <xsl:template match="step">
+        <li>
+            <xsl:apply-templates select="instruction"/>
+            <xsl:apply-templates select="photo"/>
+        </li>
+    </xsl:template>
+
+    <!-- Instruction text -->
+    <!--
+        This template handles the <instruction> elements inside each step.
+        It puts the text directions inside a <p> tag to format them in HTML.
+        The xsl:apply-templates line used here, any smaller pieces of markup inside the instruction
+        (like <tool> or <ing> references) will also get processed correctly by their own templates.
+    -->
+    <xsl:template match="instruction">
+        <p><xsl:apply-templates/></p>
+    </xsl:template>
+
+    
+    <!-- Photos -->
+    <!--
+        This template finds every <photo> element in my XML file.
+        It turns each one into an HTML <figure> with an <img> inside it so I can style it with CSS.
+        The "replace()" function cleans up the file path by taking out "../docs/"
+        so the image links work correctly when viewed in the browser.
+        The alt text adds a short description (“Step photo”) to make the image accessible.
+    -->
+    <xsl:template match="photo">
+        <figure>
+            <img>
+                <xsl:attribute name="src">
+                    <xsl:value-of select="replace(@target, '../docs/', '')"/>
+                </xsl:attribute>
+                <xsl:attribute name="alt">Step photo</xsl:attribute>
+            </img>
+        </figure>
+    </xsl:template>
+    
+    <!-- Notes and editorial notes -->
+    <!--
+        This template matches both <editorialNote> and <note> elements.
+        It changes them into an HTML <aside> element, which is used for side comments or extra info.
+            I had to spend a good time finding out how to use this propperly and have the links I used
+            for that purpose
+        The <strong> and <a> tags show who wrote the note by using the @resp attribute from the XML.
+        The href links that person’s ID so it connects to their info inside the page.
+        xsl:apply-templates makes sure the actual note text shows up after the name.
+    -->
+    <xsl:template match="editorialNote | note">
+        <aside>
+            <strong>
+                <a>
+                    <xsl:attribute name="href">
+                        <xsl:text>#</xsl:text>
+                        <xsl:value-of select="@resp"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="@resp"/>
+                </a>
+            </strong>
+            <xsl:text> </xsl:text>
+            <xsl:apply-templates/>
+        </aside>
+    </xsl:template>
+
+    <!-- Temperature and timespan -->
+    <!--
+        These templates handle smaller details that show up inside my recipe steps.
+        They turn <temperature> and <timespan> into <span> tags so I can style them separately.
+        For <temperature>, it prints the number, adds the degree symbol (°), 
+        and then shows the unit (like F for Fahrenheit).
+        For <timespan>, it prints the time value and the unit (like “minutes”).
+        xsl:value-of select="." is what actually grabs the text from the XML to display it.
+    -->
+    <xsl:template match="temperature">
+        <span class="temp">
+            <xsl:value-of select="."/>
+            <xsl:text>°</xsl:text>
+            <xsl:value-of select="@unit"/>
+        </span>
+    </xsl:template>
+
+    <xsl:template match="timespan">
+        <span class="time">
+            <xsl:value-of select="."/>
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="@unit"/>
+        </span>
+    </xsl:template>
 
 </xsl:stylesheet>
