@@ -23,7 +23,9 @@ equipment = element equipment {tool+}
  
 recipes = element recipes { recipe+ }
 
-recipe = element recipe {name, serves, metadata, equipment, ingredients, instructions, photo*} #added photo* 
+recipe = element recipe {name, serves, metadata, equipment, ingredients, instructions, vis?} #added vis to make containers for one or more photos* 
+
+vis = element vis {photo+}
 
 name = attribute name {"German sweet chocolate cake" | "Whipped Cream Frosting" | text}
 
@@ -47,7 +49,7 @@ to = attribute to {xsd:decimal}
  
 unit =  attribute unit { "ounce" | "cup" | "egg-yolk" | "egg-white" | "tsp" | "T" | "F" | "minute" | text }
 
-step = element step { action, instruction, photo*}
+step = element step { (action | instruction | note | editorialNote | vis)*}
 
 action = attribute action {"melt" | "cream" | "add" | "sift_and_add" | "fold" | "bake" | "beat" | "mix" | text}
 

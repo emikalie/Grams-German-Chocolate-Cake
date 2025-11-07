@@ -22,7 +22,7 @@ pans, cups, bowls, spoons etc
                     her mother. My grandma started teaching me how to make this cake when I was 12
                     year old. <!-- comment/flesh out info about your source document(s). Where is the recipe from? 
             facs is short for "facsimile". You can even comment on the missing document, etc. -->
-                    <facs target="../docs/assets/WHATFILENAME.jpg"/>
+                    <facs target="../docs/assets/cake/cake-recipe.jpg"/>
                 </source>
                 <author xml:id="njk"><!--GRANDMA--></author>
                 <editor xml:id="akk"><!--MOM --></editor>
@@ -87,13 +87,15 @@ pans, cups, bowls, spoons etc
                         <tool
                             ref="sauce-pan"> for hot water</tool>
                     </instruction>
+                    <vis><photo target="../docs/assets/cake/choc-boiling.JPG"/>
+                    <photo target="../docs/assets/cake/choc-liquid.JPG"/></vis>
                 </step>
                 <step action="cream">
                     <!--ebb: What instruments are you using to cream the butter? -->
                     <instruction>Cream <ing ref="butter sug">butter &amp; sugar</ing> till fluffy.
                             <tool ref="mixer">stand alone mixer or any mixer available </tool>
                     </instruction>
-                    <photo target="../docs/assets/cake/cake-batter-mixing.jpeg"> </photo>
+                   <vis> <photo target="../docs/assets/cake/cake-batter-mixing2.JPG"> </photo></vis>
         <!-- eek: what i am doing here is, in my assets folder i creaded a few diff folders for the 
             diff images that i have just to make it easier for myself, so this photo is of something for the cake part
             while others may not be in the cake or frosting folders i made bc the images can be used for any recipe -->
@@ -106,29 +108,28 @@ pans, cups, bowls, spoons etc
                     <instruction>Add egg yolks, 1 at a time, beating well. Blend in vanilla &amp;
                         chocolate. <tool ref="egg-separator"> </tool>
                     </instruction>
-                    <photo target="../docs/assets/egg-tool.jpeg"> </photo>
+                    <editorialNote resp="eek">Blend in cooled chocolate and vanilla (clarifying that the
+                        chocolate must be cooled )</editorialNote>
+                    
+                    <vis><photo target="../docs/assets/egg-tool.JPG"> </photo></vis>
             <!-- eek: like for this photo element i will use the egg tool pic for both the cake and the frosting recipe
                 so i left it outside eihter of the new folders i made since i can use some pics for both recipes  
                 also when i make the cake on Saturday, i will do more photos demo-ing how to use the tool -->
 
                 </step>
-                <editorialNote resp="eek">Blend in cooled chocolate and vanilla (clarifying that the
-                    chocolate must be cooled )</editorialNote>
-
+            
                 <step action="sift_and_add">
                     <!--ebb: Wait, did we miss a step? When did we mix the buttermilk and chocolate? -->
                     <instruction>Sift flour with baking soda &amp; salt. Add alternately with
                         buttermilk/choco mixture. Beat till smooth. <tool ref="spatula"> rubber
                             spatula recommended</tool>
                     </instruction>
-                    <photo target="../docs/assets/cake/sifting-flour1.jpeg"> </photo>
+                   <vis> <photo target="../docs/assets/cake/sifting-flour1.JPG"> </photo></vis>
                 </step>
                 <step action="fold">
                     <!-- ebb: Hey, what does she mean by "fold"? -->
                     <instruction>Fold in by hand beaten egg whites.</instruction>
-                    <photo target="../docs/assets/egg-tool.JPG"> </photo>
-                    <photo target="../docs/assets/egg-tool2.JPG"> </photo>
-
+                   <vis> <photo target="../docs/assets/cake/egg-folding.JPG"> </photo></vis>
                 </step>
                 <editorialNote resp="eek">"Fold" means gently combine with a spatula in circular
                     motion.</editorialNote>
@@ -143,8 +144,9 @@ pans, cups, bowls, spoons etc
                         paper.</instruction>
                 </step>
             </instructions>
-            <photo target="../docs/assets/cake/greesed-pans.jpeg"> </photo>
+           <vis> <photo target="../docs/assets/cake/greesed-pans.JPG"> </photo>
             <photo target="../docs/assets/cake/batter-in-pans.JPG"> </photo>
+            <photo target="../docs/assets/cake/cakes-baking.JPG"> </photo> </vis>
         </recipe>
 
         <recipe name="Whipped Cream Frosting" serves="Frosting">
@@ -186,12 +188,12 @@ pans, cups, bowls, spoons etc
                 <step action="beat">
                     <instruction><tool ref="mixer">Beat</tool> ingredients in mixing bowl on highest
                         speed.</instruction>
-                    <photo target="../docs/assets/frosting/frosting-mixing.jpeg"> </photo>
+                    <vis><photo target="../docs/assets/frosting/beginin-frosting.JPG"> </photo></vis>
                 </step>
                 <step action="add">
                     <instruction><tool ref="spatula">Add</tool> the remaining
                         ingredients.</instruction>
-                    <photo target="../docs/assets/frosting/frosting-mixing2.jpeg"> </photo>
+                   <vis> <photo target="../docs/assets/frosting/frosting-mixing3.JPG"> </photo></vis>
                 </step>
                 <step action="mix">
                     <instruction><tool ref="mixer">Mix</tool> until thick and fluffy.</instruction>

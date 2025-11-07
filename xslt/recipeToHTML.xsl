@@ -19,7 +19,6 @@
                 <link rel="stylesheet" href="style.css"/>
             </head>
             <body>
-                <h1>Gram’s German Chocolate Cake</h1>
                 <nav class="vertical-nav">
                     <ul>
                         <li><a href="index.html">Splash Page</a></li>
@@ -28,6 +27,7 @@
                         <li><a href="recipe.html">Curated Recipe</a></li>
                     </ul>
                 </nav>
+                <h1>Gram’s German Chocolate Cake</h1>
                 <xsl:apply-templates select="descendant::recipe"/>
             </body>
         </html>
@@ -35,6 +35,7 @@
     <xsl:template match="recipe">
         <section class="recipe">
             <h2><xsl:value-of select="@name"/></h2>
+            <h3>Serves <xsl:apply-templates select="@serves"/></h3>
             <xsl:apply-templates/>
         </section> 
     </xsl:template>
@@ -60,7 +61,7 @@
         <section class="ingredient">
             <h3>Ingredients</h3>
             <ul>
-                <xsl:apply-templates select="item"/>
+                <xsl:apply-templates/>
             </ul>
         </section>
     </xsl:template>
@@ -101,6 +102,7 @@
                 </xsl:attribute>
             </xsl:for-each>
             <xsl:apply-templates/>
+          
            
         </xsl:element>
     </xsl:template>
@@ -128,9 +130,10 @@
     -->
     <xsl:template match="instructions">
         <section class="instructions">
-            <h3>Instructions</h3>
+            <h3>Instructions: <xsl:apply-templates select="ancestor::recipe/@name"/></h3>
+           
             <ol>
-                <xsl:apply-templates select="step"/>
+                <xsl:apply-templates/>
             </ol>
         </section>
     </xsl:template>
@@ -146,8 +149,8 @@
     -->
     <xsl:template match="step">
         <li>
-            <xsl:apply-templates select="instruction"/>
-            <xsl:apply-templates select="photo"/>
+            <xsl:apply-templates/>
+
         </li>
     </xsl:template>
 
@@ -171,6 +174,12 @@
         so the image links work correctly when viewed in the browser.
         The alt text adds a short description (“Step photo”) to make the image accessible.
     -->
+    <xsl:template match="vis">
+        <section class="photo-row">
+            <xsl:apply-templates/>
+        </section>
+    </xsl:template>
+    
     <xsl:template match="photo">
         <figure>
             <img>
@@ -193,11 +202,22 @@
         xsl:apply-templates makes sure the actual note text shows up after the name.
     -->
     <xsl:template match="editorialNote | note">
-        <aside>
+        <xsl:choose>
+            <xsl:when test="@resp">
+            <aside>
             <strong>
                 <a>
                     <xsl:attribute name="href">
-                        <xsl:text>#</xsl:text>
+                        <xsl:text>people.html#</xsl:text>
+                        <!-- ebb: This is setting up a relative link
+                        to a people.html page where you'll store elements
+                        with @id attributes that help introduce everyone!
+                        
+                        <figure id="njk">
+                            <img src="higrammy.JPG" alt="hi there!"/>
+                            <figcaption>My awesome caption</figcaption>
+                        </figure>
+                        -->
                         <xsl:value-of select="@resp"/>
                     </xsl:attribute>
                     <xsl:value-of select="@resp"/>
@@ -206,6 +226,34 @@
             <xsl:text> </xsl:text>
             <xsl:apply-templates/>
         </aside>
+            </xsl:when>
+            <xsl:otherwise>
+                <aside>
+                    <strong>
+                        <a>
+                            <xsl:attribute name="id">
+                                <xsl:text>people.html#</xsl:text>
+                                <!-- ebb: This is setting up a relative link
+                        to a people.html page where you'll store elements
+                        with @id attributes that help introduce everyone!
+                        
+                        <figure id="njk">
+                            <img src="higrammy.JPG" alt="hi there!"/>
+                            <figcaption>My awesome caption</figcaption>
+                        </figure>
+                        -->
+                                <xsl:value-of select="@xml:id"/>
+                            </xsl:attribute>
+                            <xsl:value-of select="@xml:id"/>
+                        </a>
+                    </strong>
+                    <xsl:text> </xsl:text>
+                    <xsl:apply-templates/>
+                </aside>
+                
+               
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <!-- Temperature and timespan -->
