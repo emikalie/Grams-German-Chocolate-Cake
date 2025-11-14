@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>People | Gram’s German Chocolate Cake</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Profiles of the people behind Gram’s German Chocolate Cake." />
+  <style>
+      html {
+          scroll-behavior: smooth;
+      }
+
+      /* Optional: gives a subtle highlight flash when linked */
+      :target {
+          background-color: #f7d9ef;
+          transition: background-color 1s ease-out;
+      }
+  </style>
+</head>
+<body class="people-page">
+<nav class="vertical-nav">
+  <ul>
+    <li><a href="index.html">Splash Page</a></li>
+    <li><a href="welcome.html">Project Overview</a></li>
+    <li><a href="steps.html">Cake &amp; Frosting Steps</a></li>
+    <li><a href="recipe.html">Curated Recipe</a></li>
+    <li><a href="people.html" class="active">People</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>The People Behind the Cake</h1>
+  <p>This page introduces the family members referenced throughout the curated recipe. Each section below matches the <code>@resp</code> or <code>@xml:id</code> used in the XML, so clicking on <code>people.html#njk</code> or <code>people.html#eek</code> from the recipe will bring you to the correct person’s photo and story.</p>
+
+  <!-- Grandma -->
+  <section id="njk">
+    <h2>Grandma</h2>
+    <figure>
+      <img src="assets/family/grandma-holding-me.JPG" alt="Portrait of Grandma" />
+      <figcaption>
+        <strong>njk</strong> — Source of the original German sweet chocolate cake recipe, handed down through generations.
+        <br />
+        Referenced in both cake and frosting metadata as the original recipe author.
+      </figcaption>
+    </figure>
+    <p>Grandma’s legacy is present in every note and measurement — her handwritten copy of the recipe inspired the digital curation of this project.</p>
+  </section>
+
+  <!-- Mom -->
+  <section id="akk">
+    <h2>Mom</h2>
+    <figure>
+      <img src="assets/family/mom-baby-me.JPG" alt="Mom with me at a few months old" />
+      <figcaption>
+        <strong>akk</strong> — Mom K., editor and keeper of frosting traditions.
+        <br />
+        Appears in the frosting recipe as <em>“Gramma Mikula &amp; Mom K.”</em>.
+      </figcaption>
+    </figure>
+    <p>Mom continues the recipe traditions and ensures that each batch of frosting matches Grandma’s original texture and flavor.</p>
+  </section>
+
+  <!-- Emily -->
+  <section id="eek">
+    <h2>Emily</h2>
+    <figure>
+      <img src="assets/family/mom-me-now2.JPG" alt="Portrait of Emily Kalie" />
+      <figcaption>
+        <strong>eek</strong> — Digital archivist and editor who preserved and transformed these family recipes using XML, Relax NG, and XSLT.
+      </figcaption>
+    </figure>
+    <p>Emily’s <code>&lt;editorialNote&gt;</code> entries explain steps, define techniques, and bring the family’s voice into the digital archive format.</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Emily Kalie. All rights reserved.</p>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
+</body>
+</html>
+
