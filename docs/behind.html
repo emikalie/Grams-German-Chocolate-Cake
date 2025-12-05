@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Behind the Scenes | Grandma's German Chocolate Cake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="behind-scenes-page">
+<!-- Navigation -->
+<nav class="vertical-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="steps.html">Cake &amp; Frosting Steps</a></li>
+    <li><a href="recipe.html">Curated Recipe</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="behind.html" class="active">Behind the Scenes</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="white-box">
+    <!-- INTRO PANEL WITH COLORED BACKGROUND -->
+    <div class="behind-intro-panel">
+      <header>
+        <h1>Behind the Scenes</h1>
+        <h2>Layering Code, Memory, and Cake</h2>
+        <p>
+          This page peels back the layers of my senior project for Grandma’s German Chocolate Cake.
+          Instead of just listing what I did, I’m using a visual “cake” and a timeline to show how
+          XML, XSLT, HTML/CSS, and React all stack together.
+        </p>
+      </header>
+
+      <!-- Intro text for the cake section -->
+      <section id="visual-cake-intro">
+        <h2>The Project as a Cake</h2>
+        <p>
+          Each layer of this SVG cake represents a part of the project: XML and schema, XSLT,
+          HTML/CSS layout, and the interactive React site. Click a layer to jump to that part
+          of the story.
+        </p>
+      </section>
+    </div>
+
+    <!-- SVG Cake -->
+    <section id="visual-cake">
+      <figure>
+        <svg viewBox="0 0 260 260" role="img" aria-labelledby="cakeTitle cakeDesc">
+          <title id="cakeTitle">Interactive cake diagram of the project stack</title>
+          <desc id="cakeDesc">
+            Each layer represents part of the project: XML &amp; schema, XSLT, HTML/CSS, and React,
+            with a cherry symbolizing family memory.
+          </desc>
+
+          <!-- Plate -->
+          <ellipse cx="130" cy="220" rx="90" ry="16" fill="#f0e0c7" />
+
+          <!-- Bottom cake layer: React app -->
+          <a href="#react-section">
+            <rect x="60" y="180" width="140" height="32" rx="8" fill="#8d4b3a" />
+          </a>
+          <text x="130" y="200" text-anchor="middle" font-size="10" fill="#fffdf7">
+            React Layers Site
+          </text>
+
+          <!-- Middle layer: HTML/CSS layout -->
+          <a href="#html-section">
+            <rect x="68" y="150" width="124" height="28" rx="7" fill="#c27b48" />
+          </a>
+          <text x="130" y="168" text-anchor="middle" font-size="10" fill="#fffdf7">
+            HTML &amp; CSS Layout
+          </text>
+
+          <!-- Upper cake layer: XSLT transformations -->
+          <a href="#xslt-section">
+            <rect x="76" y="124" width="108" height="26" rx="6" fill="#e79b5d" />
+          </a>
+          <text x="130" y="140" text-anchor="middle" font-size="10" fill="#fffdf7">
+            XSLT Transformations
+          </text>
+
+          <!-- Frosting layer: XML & schema -->
+          <a href="#xml-section">
+            <rect x="80" y="100" width="100" height="20" rx="10" fill="#f5d5b5" />
+          </a>
+          <text x="130" y="114" text-anchor="middle" font-size="10" fill="#4b3832">
+            XML &amp; Schema
+          </text>
+
+          <!-- Cherry on top: family memory / story -->
+          <a href="#goals-section">
+            <circle cx="130" cy="82" r="12" fill="#c0392b" />
+          </a>
+          <circle cx="130" cy="69" r="2" fill="#2c3e50" />
+          <path d="M130 69 C 125 55, 120 55, 116 60"
+                stroke="#2c3e50" stroke-width="2" fill="none" />
+        </svg>
+      </figure>
+    </section>
+
+    <!-- LOWER PANEL: everything from Project Goals down -->
+    <div class="behind-lower-panel">
+
+      <!-- Project Goals -->
+      <section id="goals-section">
+        <h2>Project Goals: Why This Cake?</h2>
+        <p>
+          I chose my Grandma’s German sweet chocolate cake because it has been a long-standing family tradition.
+          For my senior project, I wanted to:
+        </p>
+        <ul>
+          <li>Preserve a 2005 handwritten recipe card as a digital heritage object.</li>
+          <li>Show how humanities questions (memory, labor, authorship) connect to code.</li>
+          <li>
+            Build both a readable XML/XSLT-based site and a separate React site based on the same core story.
+          </li>
+        </ul>
+      </section>
+
+      <!-- XML & Schema -->
+      <section id="xml-section">
+        <h2>XML &amp; Schema: Turning the Recipe into Data</h2>
+        <p>
+          The first step was to encode the cake and frosting recipes in XML instead of leaving them as plain text.
+          I modeled:
+        </p>
+        <ul>
+          <li>Ingredients, steps, tools, and temperatures with their own elements.</li>
+          <li>
+            People with IDs (for example, <code>njk</code> for my Grandma and
+            <code>eek</code> for me) so I can link them to the <code>people.html</code> page.
+          </li>
+          <li>
+            A Relax NG schema to control what appears where and keep the file valid and reusable.
+          </li>
+        </ul>
+        <p>
+          This XML layer is like the frosting: it holds everything together and gives the project structure
+          before anything is styled or made interactive.
+        </p>
+      </section>
+
+      <!-- XSLT -->
+      <section id="xslt-section">
+        <h2>XSLT: Baking the XML into HTML</h2>
+        <p>
+          Once the XML was stable, I wrote XSLT to transform it into the HTML pages that appear on this site.
+          The stylesheet:
+        </p>
+        <ul>
+          <li>Turns recipe elements into headings, lists, and paragraphs.</li>
+          <li>Builds links into the people section using the IDs in the XML.</li>
+          <li>
+            Pulls in editorial notes so I can explain older terms or give modern baking advice.
+          </li>
+        </ul>
+        <p>
+          This is the point where the XML becomes something a reader can easily follow, without knowing anything
+          about markup.
+        </p>
+      </section>
+
+      <!-- HTML & CSS -->
+      <section id="html-section">
+        <h2>HTML &amp; CSS: Designing the Reading Experience</h2>
+        <p>
+          After the transformation, I focused on how the site should feel to actually use. Some choices I made:
+        </p>
+        <ul>
+          <li>
+            Using headings and semantic tags so screen readers can navigate the page structure.
+          </li>
+          <li>
+            Writing alt text for images of the handwritten card and baking steps so the visuals are still meaningful
+            without the photos.
+          </li>
+          <li>
+            Reusing containers like the white-box layout to keep pages consistent and readable.
+          </li>
+        </ul>
+        <p>
+          This layer is where the site starts to look like a digital recipe booklet that still respects accessibility
+          and good design.
+        </p>
+      </section>
+
+      <!-- React -->
+      <section id="react-section">
+        <h2>React Layers Site: Making the Cake Interactive</h2>
+        <p>
+          In addition to this non-React site, I built a React version where the cake itself becomes an interface:
+        </p>
+        <ul>
+          <li>The cherry and each cake layer are clickable shapes.</li>
+          <li>
+            Clicking a layer changes the associated text color to match that layer, reinforcing
+            the idea of “reading” the cake visually.
+          </li>
+          <li>
+            The order of the layers (cherry, frosting, top, middle, bottom) matches the way the physical
+            dessert is actually built.
+          </li>
+        </ul>
+        <p>
+          The React site shows how the same core story can be retold as a playful, interactive experience.
+        </p>
+      </section>
+
+      <!-- SVG Timeline -->
+      <section id="timeline-section">
+        <h2>Process Timeline</h2>
+        <p>
+          This timeline shows the main phases I moved through, from scanning the card to publishing both the
+          XML/XSLT site and the React site.
+        </p>
+
+        <figure>
+          <svg viewBox="0 0 600 120" role="img" aria-labelledby="timelineTitle timelineDesc">
+            <title id="timelineTitle">Timeline of project phases</title>
+            <desc id="timelineDesc">
+              Phases: Collect &amp; Scan, XML Modeling, XSLT &amp; HTML, Design &amp; Media,
+              React Layers, Final Reflection.
+            </desc>
+
+            <!-- Line -->
+            <line x1="40" y1="60" x2="560" y2="60"
+                  stroke="#d3b28a" stroke-width="4" stroke-linecap="round" />
+
+            <!-- 1: Collect & Scan -->
+            <circle cx="60" cy="60" r="8" fill="#c0392b" />
+            <text x="60" y="85" text-anchor="middle" font-size="10">Collect &amp; Scan</text>
+
+            <!-- 2: XML Modeling -->
+            <circle cx="160" cy="60" r="8" fill="#f5d5b5" />
+            <text x="160" y="30" text-anchor="middle" font-size="10">XML Modeling</text>
+
+            <!-- 3: XSLT & HTML -->
+            <circle cx="260" cy="60" r="8" fill="#e79b5d" />
+            <text x="260" y="85" text-anchor="middle" font-size="10">XSLT &amp; HTML</text>
+
+            <!-- 4: Design & Media -->
+            <circle cx="360" cy="60" r="8" fill="#c27b48" />
+            <text x="360" y="30" text-anchor="middle" font-size="10">Design &amp; Media</text>
+
+            <!-- 5: React Layers -->
+            <circle cx="460" cy="60" r="8" fill="#8d4b3a" />
+            <text x="460" y="85" text-anchor="middle" font-size="10">React Layers</text>
+
+            <!-- 6: Final Reflection -->
+            <circle cx="560" cy="60" r="8" fill="#2c3e50" />
+            <text x="560" y="30" text-anchor="middle" font-size="10">Final Reflection</text>
+          </svg>
+        </figure>
+      </section>
+
+      <!-- Wrap-up -->
+      <section id="reflection-section">
+        <h2>What I Learned</h2>
+        <p>
+          I will fill this section in later.
+        </p>
+      </section>
+
+    </div><!-- /.behind-lower-panel -->
+  </div><!-- /.white-box -->
+</main>
+</body>
+</html>
+
